@@ -1,0 +1,2224 @@
+# coding: utf-8
+# Questão - Inverte Número - Miniteste Ygor
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+numero = raw_input()
+def inverte_numero(numero):
+	novo_numero = ""
+	for i in numero[::-1]:
+		novo_numero += i
+	return novo_numero
+print inverte_numero(numero)
+____________________________________________________________________________
+# coding: utf-8
+# Questão - Converte data - Miniteste Ygor
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+data = raw_input()
+def converte_data(data):
+    meses = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Novembro","Dezembro"]
+    nova_data = ""
+    dia = data[:2]
+    mes = int(data[3:5]) - 1
+    ano = data[6:]
+    nova_data = "%s de %s de %s" % (dia, meses[mes],ano)
+    return nova_data
+	
+print converte_data(data)
+____________________________________________________________________________
+# coding: utf-8
+# MTP 09 de P1
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+ordem = []
+while True:
+    num = int(raw_input())
+    if num < 0: break
+    ordem.append(num)
+k = 0
+while True:
+    trocados = False
+    for i in range(0, len(lista)-1-k):
+        if ordem[i] > ordem[i+1]:
+            ordem[i], ordem[i+1] = ordem[i+1], ordem[i]
+            trocados = True
+        print ordem
+    k += 1
+    if not trocados: break
+____________________________________________________________
+# coding: utf-8
+# Questão do mini teste de Ygor - For
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+seq = map(int, raw_input().split())
+seq.sort()
+for i in seq:
+	if i % 2 == 0:
+		print i
+
+_________________________________________________________________________
+# coding: utf-8
+# Questão do mini teste de Ygor - For
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+palavra = raw_input()
+nova_palavra = ""
+cont = 0
+for i in palavra:
+	if i.lower() in ['a','e','i','o','u']:
+		nova_palavra += "*"
+		cont += 1
+	else:
+		nova_palavra += i
+print nova_palavra, cont
+
+_________________________________________________________________________
+# coding: utf-8
+# Questão interativa do Fernando Kasunanga...
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+from random import randint
+print "Bem vindo!"
+sorteado = randint (1, 100)
+chute = 0
+while chute != sorteado:
+	chute = int(raw_input())
+	if chute == sorteado:
+		print "Você venceu!"
+	else:
+		if chute > sorteado:
+			print "Alto"
+		else:
+			print "Baixo"
+print "Fim do jogo!"
+________________________________________________________________________
+# coding: utf-8
+# Questão 35
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+for i in range(88, 1001, 2):
+    i = i * 0.1
+    print i
+____________________________________________________________________________
+# coding: utf-8
+# Questão 58
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+altura = int(raw_input())
+for i in range(0, altura+1):
+    if i == altura:
+        i = 0
+    print "%s%s" % (" "*((altura-1)-i), "*"*(1+2*i))
+____________________________________________________________________________
+# coding: utf-8
+# Questão 65
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = 0
+while True:
+    palavra = raw_input()
+    if palavra[0] == "A":
+        break
+    cont += 1
+print "---"
+print "%d %s" % (cont,palavra)
+________________________________________________________________________
+# coding: utf-8
+# Questão 66
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = 0
+soma = 0
+media = 0
+while True:
+    palavra = raw_input()
+    if palavra == "fim": 
+        break
+        cont = 0
+    cont += 1.0
+    soma += len(palavra)
+    media = soma / cont
+print "%.1f" % media
+________________________________________________________________________
+# coding: utf-8
+# Questão 69
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+vogais = ["a","e","i","o","u"]
+contadores = [0,0]
+conta_palavras = 0
+while True:
+    if contadores[1] > contadores[0]:
+	break
+    else:
+	contadores = [0,0]
+	palavra = raw_input()
+	conta_palavras += 1
+	for i in range(len(palavra)):
+	    if palavra[i].lower() in vogais:
+	        contadores[0] += 1
+	    else:
+		contadores[1] += 1
+print conta_palavras
+_________________________________________________________________________
+# coding: utf-8
+# Questão 71
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+n = int(raw_input())
+a = n / 2.0
+contador = 0
+
+while True:
+    if abs((a)**2 - n) < 10**(-4):
+        print "%.2f %d" % (a, contador)
+        break
+    contador += 1
+    a = (a + n/a) / 2.0    
+________________________________________________________________________
+# coding: utf-8
+# Questão 78
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = [0,0]
+soma = [0,0]
+media = [0,0]
+numero = int(raw_input())
+for i in range(numero):
+    nota = float(raw_input())
+    if nota >= 7.0:
+        cont[0] += 1
+        soma[0] += nota
+        media[0] = soma[0] / cont[0]
+    else:
+        cont[1] += 1
+        soma[1] += nota
+        media[1] = soma[1] / cont[1]
+if media[0] == 0 and media[1] < 7.0:
+    print "Reprovados: %d" % cont[1]
+    print "Média: %.1f\n" % media[1]
+    print "Aprovados: 0"
+elif media[1] == 0 and media[0] >= 7.0:
+    print "Reprovados: 0\n"
+    print "Aprovados: %d" % cont[0]
+    print "Média: %.1f" % media[0]
+else:
+    print "Reprovados: %d" % cont[1]
+    print "Média: %.1f\n" % media[1]
+    print "Aprovados: %d" % cont[0]
+    print "Média: %.1f" % media[0]
+________________________________________________________________________
+# coding: utf-8
+# Questão 79
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+maior = ""
+for i in range(3):
+    palavra = raw_input()
+    if len(palavra) > len(maior):
+        maior = palavra
+print maior
+_________________________________________________________________________
+# coding: utf-8
+# Questão 84
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+for i in range(11):
+    print (2 ** i) - 1
+_________________________________________________________________________
+# coding: utf-8
+# Questão 85
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+for i in range(7):
+   print 1 * 5 ** i
+_________________________________________________________________________
+# coding: utf-8
+# Questão 87
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+numero = int(raw_input("n? "))
+somador = 1
+multiplicador = 1
+contador = 0
+
+while True:
+    if contador == numero: break
+    print somador
+    somador += 3
+    contador += 1
+    if contador >= numero: break
+    print multiplicador
+    multiplicador *= somador
+    contador += 1
+_________________________________________________________________________
+# coding: utf-8
+# Questão 88
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+n = int(raw_input("n? "))
+c = raw_input("c? ")
+for i in range(n):
+    palavra = raw_input("palavra? ")
+    if palavra[0].lower() == c.lower():
+	print "%s comeca com %s" % (palavra, c)
+    else:
+	print "%s nao comeca com %s" % (palavra, c)
+____________________________________________________________________
+# coding: utf-8
+# Questão 89
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+for i in range(12):
+    valores = map(float, raw_input().split())
+    saldo = valores[0] - valores[1]
+    if saldo > 0:
+        print "%4.1f" % saldo
+    else:
+	print "%4.1f" % saldo
+
+_____________________________________________________________________
+# coding: utf-8
+# Questão 90
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+meses = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"]
+for i in range(12):
+    valores = map(float, raw_input().split())
+    saldo = valores[0] - valores[1]
+    if saldo > 0:
+	print meses[i],"%4.1f" % saldo
+    else:
+	print meses[i],"%4.1f" % saldo
+_______________________________________________________________________
+# coding: utf-8
+# Questão 91
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+pontos = 0
+infracoes = raw_input().split()
+for i in range(len(infracoes)):
+	if infracoes[i] == "Gravíssima":
+		pontos += 7
+	elif infracoes[i] == "Grave":
+		pontos += 5
+	elif infracoes[i] == "Média":
+		pontos += 4
+	elif infracoes[i] == "Leve":
+		pontos += 3
+if pontos >= 20:
+	print "%d pontos. CNH suspensa." % pontos
+else:
+	print "%d pontos. CNH válida." % pontos
+
+_________________________________________________________________________
+# coding: utf-8
+# Questão 92
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+num = int(raw_input())
+for i in range(1, num):
+    if num % i == 0:
+        print i
+
+___________________________________________________________________________
+# coding: utf-8
+# Questão 93
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = 0
+seq_um = raw_input()
+seq_dois = raw_input()
+if len(seq_um) == len(seq_dois):
+    for i in range(len(seq_um)):
+        if seq_um[i] == seq_dois[i]:
+            cont += 1
+        else:
+            cont += 0
+if (cont > ((len(seq_um)) / 2)) and (cont > ((len(seq_dois)) / 2)):
+    print "sim"
+else:
+    print "nao"
+
+______________________________________________________________________
+# coding: utf-8
+# Questão 94
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+nova_palavra = ""
+palavra = raw_input()
+for i in range(0, len(palavra), 2):
+    nova_palavra += palavra[i]
+print nova_palavra
+______________________________________________________________________
+# coding: utf-8
+# Questão 95
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+vogais = ["a","e","i","o","u"]
+while True:
+    temVogal = False
+    palavra = raw_input()
+    if palavra == "fim": break
+    for i in palavra:
+        if i.lower() in vogais:
+            temVogal = True
+            break
+    if temVogal:
+        print i
+    else:
+        print "-"
+_____________________________________________________________________
+# coding: utf-8
+# Questão 96
+# (C) 2013, Marcos Antônio / UFCG, Programação1
+
+vogais = ["a","e","i","o","u"]
+palavra = raw_input()
+for i in palavra:
+    if i.lower() in vogais:
+        if i.lower() == "a":
+            vogal = i
+            break
+        elif i.lower() == "e":
+            vogal = i
+            break
+        elif i.lower() == "i":
+            vogal = i
+            break
+        elif i.lower() == "o":
+            vogal = i
+            break
+        elif i.lower() == "u":
+            vogal = i
+            break
+    else:
+        vogal = "-"
+print vogal            
+______________________________________________________________________
+# coding: utf-8
+# Questão 97
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+indices = map(float, raw_input().split())
+datas = raw_input().split()
+valor_esperado = float(raw_input())
+for i in range(len(indices)):
+    if indices[i] < valor_esperado:
+        print datas[i], indices[i]
+_______________________________________________________________________
+# coding: utf-8
+# Questão 98
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+conta = raw_input().split()
+soma = 0
+for i in conta[0]:
+    soma += int(i)
+if (soma % 11 == int(conta[1])):
+    print "ok"
+else:
+    print "erro"
+_______________________________________________________________________
+# coding: utf-8
+# Questão 99
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+nomes = []
+datas = []
+meses = []
+anos = []
+for i in range(2):
+    nome = raw_input()
+    nomes.append(nome)
+    dia = int(raw_input())
+    datas.append(dia)
+    mes = int(raw_input())
+    meses.append(mes)
+    ano = int(raw_input())
+    anos.append(ano)    
+if ano[0] == ano[1] and mes[0] == mes[1] and dia[0] > dia[1]:
+    print nomes[0]
+elif ano[0] == ano[1] and mes[0] == mes[1] and dia[0] < dia[1]:
+    print nomes[1]
+elif ano[0] == ano[1] and mes[0] > mes[1]:
+    print nomes[0]
+elif ano[0] == ano[1] and mes[0] < mes[1]:
+    print nomes[1]
+elif ano[0] > ano[1]:
+    print nomes[0]
+elif ano[0] < ano[1]:
+    print nomes[0]
+else:
+    print "nenhuma"
+_______________________________________________________________________
+# coding: utf-8
+# Questão 100
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+resolucoes = map(int, raw_input().split())
+alunos = raw_input().split()
+maior = 0
+aluno = ""
+for i in range(len(resolucoes)):
+    if resolucoes[i] > maior:
+        maior = resolucoes[i]
+        aluno = alunos[i]
+        
+print aluno, maior
+_______________________________________________________________________
+# coding: utf-8
+# Questão 101
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+senha = raw_input()
+soma_i = 0
+soma_p = 0
+for i in range(0, len(senha), 2):
+    soma_i += int(senha[i])
+for i in range(1, len(senha), 2):
+    soma_p += int(senha[i])
+    
+if (soma_i % 2 != 0) and (soma_p % 2 == 0):
+    print "segura"
+else:
+    print "insegura"
+
+________________________________________________________________________
+# coding: utf-8
+# Questão 102
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+carregamento = int(raw_input())
+if carregamento > 1:
+    contador = 0
+    tempo = 0
+    for i in range(carregamento):
+	hora = map(int,raw_input().split())
+	if hora[1] - hora[0] >= tempo:
+	    tempo = hora[1] - hora[0]
+	    contador = i+1
+	print "carregamento", contador
+________________________________________________________________________
+# coding: utf-8
+# Questão 104
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+digito_um = 0
+cpf = raw_input()
+valor = 2
+for i in range(len(cpf)-1,-1,-1):
+    digito_um += int(cpf[i]) * valor
+    valor += 1    
+digito_um = (digito_um * 10) % 11
+if digito_um == 10:
+    digito_um = 0
+    
+valor = 2
+digito_dois = digito_um * valor
+for i in range(len(cpf)-1,-1,-1):
+    valor += 1
+    digito_dois += int(cpf[i]) * valor
+digito_dois = (digito_dois * 10) % 11
+if digito_dois == 10:
+    digito_dois = 0
+
+digito_verificador = str(digito_um)+str(digito_dois)    
+print digito_verificador
+________________________________________________________________________
+# coding: utf-8
+# Questão 105
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+num = int(raw_input())
+print num
+while num != 1:
+    if num % 2 == 0:
+        num = num / 2
+        print num
+    else:
+        num = num * 3 + 1
+        print num
+_______________________________________________________________________
+# coding: utf-8
+# Questão 106
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+numero_um = int(raw_input("Número 1: "))
+
+while True:
+    if numero_um < 0 or numero_um > 100:
+        print "Número 1 inválido. Por favor, digite novamente."
+        numero_um = int(raw_input("Número 1: "))
+    else:
+	numero_dois = int(raw_input("Número 2: "))
+	if numero_dois < 0 or numero_dois > 100:
+	    print "Número 2 inválido. Por favor, digite novamente."
+	else:
+	    soma = numero_um + numero_dois
+	    break
+print "Soma: %d" % soma
+________________________________________________________________________
+# coding: utf-8
+# Questão 107
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+exercicios = map(int, raw_input().split())
+nomes = raw_input().split()
+
+while True:
+    numero,maximo = map(int, raw_input().split())
+    if numero == 0 and maximo == 0: break
+    
+    feitos = []
+    alunos = []
+    
+    for i in range(len(exercicios)):
+        if exercicios[i] <= maximo:
+            feitos.append(exercicios[i])
+            alunos.append(nomes[i])
+    
+    if numero > len(alunos):
+        print "-"
+    else:
+        print alunos[numero-1], feitos[numero-1]   
+________________________________________________________________________
+# coding: utf-8
+# Questão 108
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+while True:
+    cont = 0
+    palavra = raw_input()
+    if palavra == "fim":
+        break
+    for i in range(len(palavra)):
+        if palavra[i] == palavra[i].upper():
+            cont += 1
+        else:
+            cont += 0
+    print cont
+________________________________________________________________________
+# coding: utf-8
+# Questão 109
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+valores = []
+while True:
+    num = int(raw_input())
+    if num == -1:
+        break
+    valores.append(num)
+maior = valores[0]
+menor = valores[0]
+for i in valores:
+    if i > maior:
+        maior = i
+    if i < menor:
+        menor = i
+print "maior:",maior
+print "menor:",menor
+
+________________________________________________________________________
+# coding: utf-8
+# Questão 111
+# (C) 2013, Marcos Antônio / UFCG, programação 1
+
+valores = map(int, raw_input().split())
+num_um = valores[0]
+num_dois = valores[1]
+num_tres = valores[2]
+cont = 0
+
+if num_um == num_dois and num_um == num_tres:
+    cont += 3
+elif num_um == num_dois or num_dois == num_tres or num_um == num_tres:
+    cont += 2
+else:
+    cont = 0
+    
+print cont
+
+________________________________________________________________________
+# coding: utf-8
+# Questão 112
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+nomes = raw_input().split()
+idades = map(int, raw_input().split())
+for i in range(len(idades)):
+    if idades[i] >= 18:
+        print nomes[i]
+_________________________________________________________________________
+# coding: utf-8
+# Questão 113
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def conta_coincidencias(lista1, lista2):
+    coincidencias = 0
+    for i in range(len(lista1)):
+        for j in range(len(lista2)):
+            if i == j:
+                if lista1[i] == lista2[j]:
+                    coincidencias += 1
+    return coincidencias
+
+lista1 = map(int, raw_input().split())
+lista2 = map(int, raw_input().split())
+print conta_coincidencias(lista1,lista2)
+_________________________________________________________________________
+# coding: utf-8
+# Questão 114
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+lista = map(int, raw_input().split())
+num = int(raw_input())
+def encontra_menores(num, lista):
+    for i in range(len(lista)):
+        if lista[i] < num:
+	    return lista[i]	    
+    return -1
+print encontra_menores(num, lista)
+__________________________________________________________________________
+# coding: utf-8
+# Questão 115
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+lista = raw_input().split()
+def z_inicial(lista):
+    cont = 0
+    for i in range(len(lista)):
+        if lista[i][0].lower() == "z":
+	    cont += 1
+	else: 
+	    cont += 0
+    return cont
+print z_inicial(lista)
+__________________________________________________________________________
+# coding: utf-8
+# Questão 116
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def tem_vogais_adjacentes(palavra):
+    vogais = ["a","e","i","o","u"]
+    for i in range(len(palavra)-1):
+        if palavra[i].lower() in vogais and palavra[i+1].lower() in vogais:
+            return "sim"
+    return "nao"
+
+palavra = raw_input()
+print tem_vogais_adjacentes(palavra)
+_________________________________________________________________________
+# coding: utf-8
+# Questão 117
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+ 
+ocorrencia = -1
+numero = int(raw_input())
+lista_valores = map(int, raw_input().split())
+ 
+if lista_valores.count(numero) > 1:
+    for i in xrange(len(lista_valores)):
+        if lista_valores[i] == numero:
+            ocorrencia = i
+   
+print ocorrencia
+__________________________________________________________________________
+# coding: utf-8
+# Questão 118
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+variaveis = map(float, raw_input().split())
+horas = raw_input().split()
+
+max = [variaveis[0], horas[0]]
+min = [variaveis[0], horas[0]]
+
+for i in range(len(variaveis)):
+    if variaveis[i] > max[0]:
+        max[0] = variaveis[i]
+        max[1] = horas[i]
+    if variaveis[i] < min[0]:
+        min[0] = variaveis[i]
+        min[1] = horas[i]
+
+print "Min: %s %.2f" % (min[1], min[0])
+print "Max: %s %.2f" % (max[1], max[0])
+_________________________________________________________________________
+# coding: utf-8
+# Questão 120
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+status = ""
+senha = raw_input()
+for i in range(0, len(senha), 2):
+    if int(senha[i]) % 2 != 0:
+        status = "segura"
+        for i in range(1, len(senha), 2):
+            if int(senha[i]) % 2 == 0:
+                status = "segura"
+            else:
+                status = "insegura"
+    else:
+        status = "insegura"
+print status
+_________________________________________________________________________
+# coding: utf-8
+# Questão 121
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+while True:
+    resistencia = map(int, raw_input().split())
+    associacao = (resistencia[0] * resistencia[1]) / (resistencia[0] + resistencia[1])
+    print associacao
+    if associacao == 0: break
+________________________________________________________________________
+# coding: utf-8
+# Questão 122
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = [0,0,0]
+soma = [0,0,0]
+media = [0,0,0]
+while True:
+    num = int(raw_input())
+    if num == 0: break
+    if num % 2 == 0:
+        cont[0] += 1
+        soma[0] += num
+        media[0] = soma[0]/cont[0]
+    if num % 2 != 0:
+        cont[1] += 1
+        soma[1] += num
+        media[1] = soma[1]/cont[1]
+    soma[2] += num
+    cont[2] += 1
+    media[2] = float(soma[2])/cont[2]
+print "pares: %d" % cont[0]
+print "impares: %d" % cont[1]
+print "media pares: %.1f" % media[0]
+print "media impares: %.1f" % media[1]
+print "media geral: %.1f" % media[2]
+__________________________________________________________________________
+# coding: utf-8
+# Questão 124
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+import math
+soma = 0
+cont = 0
+mosca = [0,0]
+while True:
+    posicao = map(float, raw_input().split(","))
+    distancia = math.sqrt((posicao[0] - mosca[0])**2 + (posicao[1] - mosca[1])**2)
+    if disntancia > 200: break
+    print "%.2f" % distancia
+    cont += 1
+    soma += distancia
+    media = soma / cont
+print "---"
+print "num de disparos: %d" % cont
+print "distancia media: %.2f" % media
+
+________________________________________________________________________
+# coding: utf-8
+# Questão 125
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = [0,0]
+vogais = ['a','e','i','o','u']
+while True:
+    palavra = raw_input()
+    if palavra == "fim": break
+    cont[0] += 1
+    if palavra[0].lower() in vogais:
+        cont[1] += 1
+percetagem = 100.0 / cont[0]
+print "total de palavras: %d" % cont[0]
+print "iniciadas por vogais: %d (%.2f%%)" % (cont[1], percetagem)
+
+_______________________________________________________________________
+# coding: utf-8
+# Questão 126
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+from random import randint
+sorteado = randint(1, 1000)
+chute = 0
+cont = 0
+while chute != sorteado:
+    chute = int(raw_input("Adivinhe o número..."))
+    cont += 1
+    if chute == sorteado:
+        print "Acertou em %d tentativas." % cont
+    else:
+        if chute > sorteado:
+            print "o número é menor..."
+        else:
+            print "o número é maior..."
+_________________________________________________________________________
+# coding: utf-8
+# Questão 128
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+media = float(raw_input())
+contador, acima, abaixo = 0, 0, 0
+porcentagem = [0,0]
+
+while True:
+    temperatura = float(raw_input())
+    if temperatura >= 100.0: break
+    if temperatura < media:
+        abaixo += 1
+        contador += 1.0
+    if temperatura >= media:
+        acima += 1
+        contador += 1.0
+        
+porcentagem[0] = 100 * (abaixo / contador)
+porcentagem[1] = 100 * (acima / contador)
+
+print "média histórica considerada: %.1f" % (media)
+print "medições acima da média: %d (%4.1f%%)" % (acima,porcentagem[1])
+print "medições abaixo da média: %d (%4.1f%%)" % (abaixo,porcentagem[0])
+_________________________________________________________________________
+# coding: utf-8
+# Questão 129
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+temperatura = float(raw_input())
+while True:
+    temperatura_dois = float(raw_input())
+    diferenca = temperatura_dois
+    diferenca -= temperatura
+    temperatura = temperatura_dois
+    if diferenca > 2.0:
+        print "dif: %.2f (diferenca acima de 2.0 detectada)" % (diferenca)
+	break
+    else:
+	print "dif: %.2f (ok)" % (diferenca)
+________________________________________________________________________
+# coding: utf-8
+# Questão 130
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+while True:
+    num = map(int, raw_input().split())
+    if num[0] == 5: break
+    if num[0] == 1:
+        soma = num[1] + num[2]
+	print "%d" % soma
+    if num[0] == 2:
+        subtracao = num[1] - num[2]
+	print "%d" % subtracao
+    if num[0] == 3:
+        multiplicacao = num[1] * num[2]
+	print "%d" % multiplicacao
+    if num[0] == 4:
+	divisao = num[1] / num[2]
+	print "%d" % divisao
+_________________________________________________________________________
+# coding: utf-8
+# Questão 131
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+dados = raw_input().split()
+saldo = float(dados[1])
+while True:
+    operacao = raw_input().split()
+    if int(operacao[0]) == 3: break
+    if int(operacao[0]) == 1:
+        saldo -= float(operacao[1])
+    if int(operacao[0]) == 2:
+        saldo += float(operacao[1])
+print "Saldo de R$ %.2f na conta de %s" % (saldo,dados[0])
+__________________________________________________________________________
+# coding: utf-8
+# Questão 132
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+jogador = [0,0]
+empate = 0
+while True:
+    cartas = map(int, raw_input().split())
+    if cartas[0] == 0: break
+    if cartas[0] > cartas[1]:
+        jogador[0] += 1
+    if cartas[1] > cartas[0]:
+        jogador[1] += 1
+    if cartas[0] == cartas[1]:
+        empate += 1
+print "Jogador 1: %d, Jogador 2: %d, Empates: %d" % (jogador[0],jogador[1],empates)
+________________________________________________________________________
+# coding: utf-8
+# Questão 133
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+posicao_robo = [0,0]
+while True:
+    posicao = raw_input().split()
+    if int(posicao[1]) == 0: break
+    if posicao[0].upper() == "C":
+        posicao_robo[1] += int(posicao[1])
+    if posicao[0].upper() == "B":
+        posicao_robo[1] -= int(posicao[1])
+    if posicao[0].upper() == "E":
+        posicao_robo[0] -= int(posicao[1])
+    if posicao[0].upper() == "D":
+        posicao_robo[0] += int(posicao[1])
+print "%d %d" % (posicao_robo[0],posicao_robo[1])
+________________________________________________________________________
+# coding: utf-8
+# Questão 135
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def prevogais(palavra):
+    vogais = ['a','e','i','o','u']
+    lista = []
+    for i in range(len(palavra)-1):
+        if palavra[i+1] in vogais:
+            lista.append(palavra[i])
+    return lista
+________________________________________________________________________
+# coding: utf-8
+# Questão 136
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def divisores_proprios(n):
+    lista = []
+    for i in range(1, n):
+        if n % i == 0:
+            lista.append(i)
+    return lista
+_______________________________________________________________________________________
+# coding: utf-8
+# Questão 137
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def celsiusToFahrenheit(t):
+    t = (t * 1.8) + 32
+    return t
+def fahrenheitToCelsius(t):
+    t = (t - 32) / 1.8
+    return t
+while True:
+    t = raw_input().split()
+    t[0] == "fim": break
+    if t[0].lower() == "f":
+        print "C %.1f" % fahrenheitToCelsius(float(t[1]))
+    if t[0].lower() == "c":
+        print "F %.1f" % celsiusToFahrenheit(float(t[1]))
+________________________________________________________________________
+# coding: utf-8
+# Questão 138
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def calculaPeso(sexo, altura):
+    if sexo.lower() == "m":
+        return (72.7 * altura) - 58
+    if sexo.lower() == "f":
+	return (62.1 * altura) - 44.7
+           
+while True:
+    dados = raw_input().split()
+    if dados[0] == "****": break
+    if dados[0].lower() == "m":
+        print "Homem: peso ideal é %.1f" % calculaPeso(dados[0],float(dados[1]))
+    if dados[0].lower() == "f":
+        print "Mulher: peso ideal é %.1f" % calculaPeso(dados[0],float(dados[1]))
+
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 139
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+import math
+def areaQuadrado(lado):
+    return lado ** 2
+def areaTriangulo(base, altura):
+    return (base*altura) / 2
+def areaCirculo(raio):
+    return math.pi * raio ** 2
+
+while True:
+    dados = raw_input().split()
+    if dados[0] == "fim": break
+    if dados[0].upper() == "Q":
+        print "A área do quadrado é %.2f" % areaQuadrado(float(dados[1]))
+    if dados[0].upper() == "C":
+        print "A área do círculo é %.2f" % areaCirculo(float(dados[1]))
+    if dados[0].upper() == "T":
+        print "A área do triangulo é %.2f" % areaTriangulo(float(dados[1]),float(dados[2]))
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 140
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def letras_alternadas(palavra):
+    nova_palavra = ""
+    for i in range(0, len(palavra), 2):
+        nova_palavra += palavra[i]
+    return nova_palavra
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 141
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def conta_letra(letra,frase):
+    cont = 0
+    for i in range(len(frase)):
+        if frase[i].lower() == letra.lower():
+            cont += 1
+    return cont
+
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 143
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def lanchemaispedido(pedidos):
+    for i in range(len(pedidos)):
+        if pedidos.count(pedidos[i]) > len(pedidos)/2:
+            return pedidos[i]
+    return
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 145
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = 0
+while True:
+    vogais = ['a','e','i','o','u']
+    palavra = raw_input()
+    if palavra == "***": break
+    if len(palavra) > 5 and palavra[0] not in vogais:
+        cont += 1
+print cont
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 146
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def soma_vizinhos(matriz, lin, col):
+    soma = matriz[lin-1][col-1] + matriz[lin-lin][col-1] + matriz[lin][col-1] + matriz[lin-1][col-col] + matriz[lin-1][col]
+    return soma
+
+
+matriz = [[1, 2, 3], [8, 10, 12], [21, 24, 27]]
+lin = 1
+col = 1
+print soma_vizinhos(matriz, lin, col)
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 147
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def filtra_alunos(alunos, inscritos, media):
+    contador = 0
+    for i in range(len(alunos)-1, -1, -1):
+        if alunos[i][0] not in inscritos or alunos[i][1] < media:
+            alunos.pop(i)
+            contador += 1
+    return contador
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 148
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def disciplinas(grade, disciplinas_cursadas):
+    lista = []
+    for i in grade.keys():
+        if grade[i] == disciplinas_cursadas and i not in disciplinas_cursadas:
+            lista.append(i)
+        else:
+            condicao = True
+            for j in grade[i]:
+                if j not in disciplinas_cursadas:
+                    condicao = False
+            if condicao and i not in disciplinas_cursadas:
+                lista.append(i)
+    return lista
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 149
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+primeira = raw_input()
+segunda = raw_input()
+
+posicao = 0
+comeco = 0
+fim = len(primeira)
+
+for i in range(len(segunda)-len(primeira)):
+    pedaco = segunda[comeco:fim]
+    posicao += 1
+    if primeira == pedaco:
+        print posicao
+    comeco += 2
+    fim += 2
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 150
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def calcula_fatorial(numero):
+    fatorial = 1
+    for i in range(1, numero+1):
+        fatorial *= i
+    return fatorial
+
+def conta_zeros(numero):
+    contador = 0
+    for i in str(numero)[::-1]:
+        if i == "0":
+            contador += 1
+        else:
+            break
+    return contador
+
+numero = int(raw_input())
+if numero >= 0 or numero <= 200:
+    fatorial = calcula_fatorial(numero)
+    print conta_zeros(fatorial)
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 151
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def criaSenhaFraca(palavra):
+    senha_fraca = "(("+palavra+"))"
+    return senha_fraca	
+def criaSenhaForte(palavra):
+    senha_forte = "(("
+    for i in palavra:
+	if i.lower() == "o":
+            senha_forte += "0"
+	elif i.lower() == "i" or i.lower() == "l":
+            senha_forte += "1"
+	elif i.lower() == "e":
+	    senha_forte += "3"
+	elif i.lower() == "a":
+	    senha_forte += "4"
+	elif i.lower() == "b":
+	    senha_forte += "6"
+	elif i.lower() == "t":
+	    senha_forte += "7"
+	else:
+	    senha_forte += i
+	senha_forte += "))"
+	return senha_forte
+while True:
+    senha = raw_input().split()
+    if senha[0] == "***": break
+    if senha[1] == "fraco":
+        print criaSenhaFraca(senha[0])
+    if senha[1] == "forte":
+        print criaSenhaForte(senha[0])
+_________________________________________________________________________________________________
+# coding: utf-8
+# Questão 152
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def converte_decimal(numero):
+    binario = bin(numero)
+    binario = "%08d" % int(binario[2:])
+    return binario	
+
+def conta_zero(binario):
+    str(binario)
+    return binario.count("0")
+
+def conta_um(binario):
+    str(binario)
+    return binario.count("1")
+
+while True:
+    numero = raw_input().split()
+    if numero[0] == "***": break
+    if numero[1] == "0":
+        binario = converte_decimal(int(numero[0]))
+        print binario, conta_zero(binario)
+    if numero[1] == "1":
+        binario = converte_decimal(int(numero[0]))
+        print binario, conta_um(binario)
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 153
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def eh_vencedor_linea(tabuleiro):
+    i = 0
+    for j in xrange(len(tabuleiro)):
+        i = tabuleiro[i]
+        if i >= len(tabuleiro) or i < 0: 
+			return False
+        if i == 0: 
+            return True
+    return False
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 154
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def excesso_127(numero):
+    excesso = bin(numero + 127)
+    excesso = "%08d" % int(excesso[2:])
+    return excesso
+
+def complemento1(numero):
+    if numero > 0:
+        binario = bin(numero)
+        binario = "%08d" % int(binario[2:])
+        return binario
+    else:
+        binario = bin(numero)
+        binario = "%08d" % int(binario[3:])
+        binario_dois = ""
+        for i in binario:
+            if i == "1":
+                binario_dois += "0"
+            else:
+                binario_dois += "1"
+    return binario_dois
+
+while True:
+    operacaoenumero = raw_input().split()
+    if operacaoenumero[0] == "***": break
+    if operacaoenumero[0] == "C1":
+        print complemento1(int(operacaoenumero[1]))
+    if operacaoenumero[0] == "E127":
+        print excesso_127(int(operacaoenumero[1]))
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 155
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def sequencia_caras(lancamentos):
+    contador = 0
+    maior = 0
+    for i in range(len(lancamentos)):
+        if lancamentos[i] == 1:
+            contador += 1
+            if contador > maior:
+                maior = contador
+        else:
+            contador = 0
+    return maior
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 156
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def dominante(lista):
+    for elemento in lista:
+    if lista.count(elemento) > len(lista)/2
+        return elemento
+    return -1
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 157
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def filtra_altera_lista(num,lista):
+    for i in range(len(lista)-1, -1, -1):
+        if i % num != 0:
+            lista.pop(i)
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 158
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def filtra_lista(num,lista):
+    nova_lista = []
+    for i in range(len(lista)):
+        if i % num == 0:
+            nova_lista.append(lista[i])
+    return nova_lista
+
+lista1 = [0,1,2,3,4,5,6]
+lista2 = [2,3,5,7,11,13,17]
+assert filtra_lista(2, lista1) == [0,2,4,6]
+assert filtra_lista(3, lista1) == [0,3,6]
+assert filtra_lista(4, lista2) == [2,11]
+assert filtra_lista(40, lista2) == [2]
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 159
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def acima_de(N,L):
+    lista = []
+    for i in range(len(L)):
+        if L[i] > N:
+            lista.append(i)
+    return lista
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 160
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def acima_de(N,L):
+    lista = []
+    for i in range(len(L)):
+        if L[i] > N:
+            lista.append(i)
+    return lista
+
+exercicios = map(int, raw_input().split())
+nomes = raw_input().split()
+media = sum(exercicios)/len(exercicios)
+maiores = acima_de(media,exercicios)
+for i in range(len(maiores)):
+    print nomes[int(maiores[i])], exercicios[int(maiores[i])]
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 161
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def conta_palavras(k,palavras):
+    palavras = palavras.split(":")
+    contador = 0
+    for i in range(len(palavras)):
+        if len(palavras[i]) >= k:
+            contador += 1
+    return contador
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 162
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def maior_palavra(lista):
+    maior = lista[0]
+    for i in range(1, len(lista)):
+        if len(lista[i]) > len(maior):
+            maior = lista[i]
+    return maior
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 163
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def divisor(num,lista):
+    for i in range(len(lista)):
+        if lista[i] % num == 0:
+            return i
+    return -1
+
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 164
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def encontra_menores(num,lista):
+    for i in range(len(lista)):
+        if lista[i] < num:
+            return lista[i]
+    return -1
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 165
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def quantos_comeram(n_feijoadas,fila):
+    refeicoes = n_feijoadas
+    contador = 0
+    if fila[0] <= refeicoes:
+        for i in range(len(fila)):
+            if fila[i] <= refeicoes:
+                refeicoes -= fila[i]
+                contador += fila[i]
+                if refeicoes == 0:
+                    return contador
+            else:
+                return contador
+    else:
+        return contador
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 166
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def cria_lista_presenca(turmas, nomes, turma):
+    presenca = []
+    for i in range(len(turmas)):
+        if turmas[i] == turma:
+            presenca.append(nomes[i])
+    return presenca
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 167
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def idosos_inicio(fila):
+    indice = 0
+    for i in range(len(fila)):
+        if fila[i] >= 60:
+            fila[i], fila[indice] = fila[indice],fila[i]
+            indice += 1 
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 168
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def maiores_final(fila):
+    indice = len(fila)-1
+    for i in range(len(fila)-1, -1, -1):
+        if fila[i] >= 18:
+            fila[i], fila[indice] = fila[indice],fila[i]
+            indice -= 1
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 169
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def lista_so_com_opostos(lista):
+    for i in range(len(lista)-1, -1, -1):
+        if lista[i] and -lista[i] not in lista:
+            lista.pop(i)
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 170
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def remove_palavras_com_menos_vogais(lista):
+    contador_vogais = 0
+    contador_consoantes = 0
+    vogais = ["a","e","i","o","u"]
+    for i in range(len(lista)-1, -1, -1):
+        for j in lista[i]:
+            if j.lower() in vogais:
+                contador_vogais += 1
+            else:
+                contador_consoantes += 1
+        if contador_vogais <= contador_consoantes:
+            lista.remove(lista[i])
+            contador_vogais = 0
+            contador_consoantes = 0
+        else:
+            contador_vogais = 0
+            contador_consoantes = 0
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 171
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def remove_listas_com_todos_menores(lista, limite):
+    conta_menores = 0
+    for i in range(len(lista)-1, -1, -1):
+        for j in lista[i]:
+            if j < limite:
+                conta_menores += 1
+        if conta_menores == len(lista[i]):
+            lista.remove(lista[i])
+            conta_menores = 0
+        else:
+            conta_menores = 0
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 172
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def soma_mats(M1,M2):
+    matrizsoma = []
+    for i in range(len(M1)):
+        lista = []
+        for j in range(len(M1[0])):
+            lista.append(M1[i][j] + M2[i][j])
+        matrizsoma.append(lista)
+    return matrizsoma
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 173
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def diag_principal(M):
+    diag_principal = []
+    for i in range(len(M)):
+		diag_principal.append(M[i][i])
+    return diag_principal
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 174
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def diag_secundaria(M):
+    diag_secundaria = []
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            if i+j == len(M[0])-1:
+                diag_secundaria.append(M[i][j])
+    return diag_secundaria
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 175
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def transposta(M):
+    transposta_de_M = []
+    for i in range(len(M[0])):
+        lista = []
+        for j in range(len(M)):
+            lista.append(M[j][i])
+	transposta_de_M.append(lista)
+    return transposta_de_M
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 176
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def coluna(matriz, i):
+    coluna_de_i = []
+    for j in range(len(matriz)):
+        coluna_de_i.append(matriz[j][i])
+    return coluna_de_i
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 177
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def somacols(M):
+    lista_somas = []
+    soma = 0
+    for i in range(len(M[0])):
+        soma = 0
+        for j in range(len(M)):
+            soma += M[j][i]
+        lista_somas.append(soma)
+    return lista_somas
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 178
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def eh_triangular_sup(mq):
+    coluna = 1
+    soma = 0
+    for i in range(1, len(mq)):
+        for j in range(coluna):
+            soma += mq[i][j]
+        coluna += 1
+    if soma == 0:
+        return True
+    return False
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 179
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def zera_diagonal(M):
+    for i in range(len(M)):
+        M[i][i] = 0
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 180
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def multiplica_matriz(matriz, escalar):
+    for i in range(len(matriz)):
+        for j in range(len(matriz[0])):
+            matriz[i][j] = matriz[i][j] * escalar
+    return matriz
+
+matriz = []
+ordem = map(int, raw_input().split())
+for i in range(ordem[0]):
+    linha = map(int, raw_input().split())
+    matriz.append(linha)
+escalar = int(raw_input())
+
+print multiplica_matriz(matriz,escalar)
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 183
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def matriz_coincidencia(M1, M2):
+    matriz_coincidencia = []
+    for i in range(len(M1)):
+        lista = []
+	for j in range(len(M1[0])):
+	    if M1[i][j] != M2[i][j]:
+	        lista.append(0)
+	    elif M1[i][j] == M2[i][j]:
+		lista.append(M1[i][j])
+	matriz_coincidencia.append(lista)
+    return matriz_coincidencia	
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 184
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def matriz_menor(M1,M2):
+    nova_matriz = []
+    for i in range(len(M1)):
+	lista = []
+	for j in range(len(M1[0])):
+	    if M2[i][j] < M1[i][j]:
+	        lista.append(M2[i][j])
+	    else:
+		lista.append(M1[i][j])
+        nova_matriz.append(lista)
+    return nova_matriz	
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 185
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def image2gray(imagem):
+    for i in range(len(imagem)):
+        for j in range(len(imagem[0])):
+            media = sum(imagem[i][j])/len(imagem[i][j])
+            imagem[i][j] = (media, media, media)
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 186
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def vetor_por_escalar(vetor, escalar):
+    novo_vetor = []
+    for i in range(len(vetor)):
+        novo_vetor.append(vetor[i] * escalar)
+    return novo_vetor
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 187
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def altera_vetor_por_escalar(vetor, escalar):
+    for i in range(len(vetor)):
+        vetor[i] = vetor[i] * escalar
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 188
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def ausentes(livros):
+    contador = 0
+    for titulo in livros:
+        if livros[titulo] == 0:
+	    contador += 1
+    return contador
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 189
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def devedores(contas):
+    contador = 0
+    for nome in contas:
+        if contas[nome] < 0:
+            contador += 1
+    return contador
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 190
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+texto = raw_input()
+ocorrencias = {}
+for i in texto.lower():
+    if ocorrencias.has_key(i):
+        ocorrencias[i] += 1
+    else:
+        ocorrencias[i] = 1
+maior_ocorrencia = max(ocorrencias, key=ocorrencias.get)
+print maior_ocorrencia, ocorrencias[maior_ocorrencia] 
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 191
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def bubblesort(dados):
+    while True:
+        swapped = False
+        for i in range(0, len(dados)-1):
+            if dados[i] > dados[i+1]:
+                dados[i],dados[i+1] = dados[i+1],dados[i]
+                swapped = True
+        if not swapped: break
+
+# coding: utf-8
+# Questão 191
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def bolhasord(dados):
+    while True:
+        trocado = False
+        for i in range(0, len(dados)-1):
+            if dados[i] > dados[i+1]:
+                dados[i],dados[i+1] = dados[i+1],dados[i]
+                trocado = True
+        if not swapped:
+	    break
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 192
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def registra_compromisso(agenda, dia, h_inicial, h_final, texto):
+    for i in range((h_final - h_inicial) + 1):
+        agenda[i][dia-1] = texto
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 193
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def busca_matriz(m, e):
+    for i in range(len(m)):
+        for j in range(len(m[0])):
+            if m[i][j] == e:
+                return i, j
+    return
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 194
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def busca_todos_por_coluna_em_matriz(m,e):
+    lista = []
+    for i in range(len(m[0])):
+        for j in range(len(m)):
+            if m[j][i] == e:
+                lista.append((j,i))
+    return lista
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 195
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def acima_media_plu(tabela, media):
+    for i in range(len(tabela)):
+        for j in range(len(tabela[0])):
+            if tabela[i][j] > media:
+                return tabela[i][j]
+    return -1
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 196
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def maior_indice_plu(tabela, cidades):
+    maiores = {}
+    for i in range(len(tabela)):
+        maiores[cidades[i]] = max(tabela[i])
+    maior = max(maiores, key=maiores.get)
+    cidade_maior = "%s %.1f" % (maior, maiores[maior])
+    return cidade_maior
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 197
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def eh_escalonada(M):
+    for i in range(len(M)):
+        for j in range(len(M)):
+            if i == j:
+                if M[i][j] != 1
+                    return False
+            else:
+                if M[i][j] != 0:
+                    return False
+    return True
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 198
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def pedido_valido(lista_de_codigos):
+    if len(lista_de_codigos) != 7:
+        return False
+    else:
+        for i in range(len(lista_de_codigos)):
+            if i == 0:
+                if lista_de_codigos[i] < 0 or lista_de_codigos[i] > 7:
+                    return False
+            elif i == 1 or i == 2:
+                if lista_de_codigos[i] < 100 or lista_de_codigos[i] > 103:
+                    return False
+            elif i == 3 or i == 4 or i == 5 or i == 6:
+                if lista_de_codigos[i] < 1000 or lista_de_codigos[i] > 1015:
+                    return False
+    return True
+
+def ajeita_pedido(lista_de_codigo):
+    lista = sorted(lista_de_codigo)
+    if pedido_valido(lista):
+        return lista
+    else:
+        return []
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 200
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def eliminaMaioreMenor(lista):
+    lista.remove(max(lista))
+    lista.remove(min(lista))
+
+def media_alunos(tabela):
+    lista = []
+    for i in range(len(tabela)):
+        eliminaMaioreMenor(tabela[i])
+        media = "%.1f" % (sum(tabela[i]) / len(tabela[i]))
+        lista.append(media)
+    return lista
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 201
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def media_mtps(tabela):
+    lista = []
+    for i in range(len(tabela[0])):
+        soma = 0
+        for j in range(len(tabela)):
+            soma += tabela[j][i]
+        media = "%.1f" % (soma/len(tabela))
+        lista.append(media)
+    return lista
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 202
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def resultado_bingo(cartela, numeros):
+    sorteados = 0
+    quantidade = ""
+    for i in range(len(cartela[0])):
+        for j in range(len(cartela)):
+            if cartela[j][i] in numeros:
+                sorteados += 1
+            if sorteados == 3:
+                quantidade += str(i+1)
+        sorteados = 0
+    if quantidade != "":
+        return quantidade
+    else:
+        return "-"
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 203
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+placas = raw_input().split()
+descontos = {}
+for i in range(len(placas)):
+    if placas[i][5:] == "12" or placas[i][5:] == "21" or placas[i][6:] == "1" or placas[i][6:] == "2":
+        descontos[placas[i]] = "janeiro"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+        
+    elif placas[i][5:] == "34" or placas[i][5:] == "43" or placas[i][6:] == "3" or placas[i][6:] == "4":
+        descontos[placas[i]] = "fevereiro"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+    
+    elif placas[i][6:] == "5":
+        descontos[placas[i]] = "marco"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+    
+    elif placas[i][6:] == "6":
+        descontos[placas[i]] = "abril"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+    
+    elif placas[i][6:] == "7":
+        descontos[placas[i]] = "maio"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+    
+    elif placas[i][6:] == "8":
+        descontos[placas[i]] = "junho"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+    
+    elif placas[i][6:] == "9":
+        descontos[placas[i]] = "julho"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+    
+    elif placas[i][6:] == "0":
+        descontos[placas[i]] = "agosto"
+        print "%s: %s" % (placas[i],descontos[placas[i]])
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 204
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def aprovados(notas_turma):
+    lista = []
+    for i in notas_turma.keys():
+        if notas_turmas[i] >= 5.0:
+            lista.append(i)
+    return lista
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 205
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def agrupa_por_periodo(turma):
+    contadores = {}
+    for i in range(len(turma)):
+        if contadores.has_key(turma[i][:3]):
+            contadores[turma[i][:3]] += 1
+        else:
+            contadores[turma[i][:3]] = 1
+    return contadores
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 206
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def agrupa_negativos(lista):
+    agrupa = {"nao-negativos":[], "negativos":[]}
+    for i in range(len(lista)):
+        if lista[i] < 0:
+            agrupa["negativos"].append(lista[i])
+        else:
+            agrupa["nao-negativos"].append(lista[i])
+    return agrupa
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 207
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def decifra(chave, mensagem):
+    nova_mensagem = ""
+    for i in mensagem:
+        if i in chave:
+            nova_mensagem += chave[i]   
+    return nova_mensagem
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 208
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def cria_resumo(numero):
+    resumo = 0
+    for i in str(numero):
+        resumo += int(i)
+    return resumo
+
+def agrupa_resumos_iguais(lista):
+    dicionario = {}
+    for i in range(len(lista)):
+        if dicionario.has_key(cria_resumo(lista[i])):
+            dicionario[cria_resumo(lista[i])].append(lista[i])
+        else:
+            dicionario[cria_resumo(lista[i])] = []
+            dicionario[cria_resumo(lista[i])].append(lista[i])        
+    return dicionario
+__________________________________________________________________________________________________
+# coding: utf-8
+# Questão 209
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def calcula_massa(formula):
+    elementos = {"H":1, "S":32, "O":16, "C":12, "Ca":40, "Na":23, "P":31}
+    soma = 0
+    for i in range(len(formula)):
+        if not formula[i].isdigit():
+            aux = elementos[formula[i]]
+            if i < len(formula)-1 and formula[i+1].isdigit():
+                aux *= int(formula[i+1])
+            soma += aux
+    return soma
+
+while True:
+    formula = raw_input().split()
+    if formula[0] == "fim": break
+    print calcula_massa(formula)
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 210
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def EhParorImpar(numero):
+    if numero % 2 == 0:
+        return "par"
+    else:
+        return "impar"
+
+def agrupa_pares_impares(lista):
+    agrupados = {"pares":[], "impares":[]}
+    for i in range(len(lista)):
+        if EhParorImpar(lista[i]) == "par":
+            agrupados["pares"].append(lista[i])
+        else:
+            agrupados["impares"].append(lista[i])
+    return agrupados
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 211
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def digitoVerificador(conta):
+    digito = (conta % 11)
+    return digito
+
+def cria_mapa(lista):
+    mapa = {}
+    for i in range(len(lista)):
+        digito = digitoVerificador(lista[i])
+        if mapa.has_key(digito):
+            mapa[digito].append(lista[i])
+        else:
+            mapa[digito] = []
+            mapa[digito].append(lista[i])        
+    return mapa
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 212
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def lista_presenca(alocacao, tipo, turma):
+    lista = []
+    for i in alocacao.keys():
+        if tipo.lower() == "t":
+            if alocacao[i][0] == turma:
+                lista.append(i)
+        elif tipo.lower() == "p":
+            if alocacao[i][1] == turma:
+                lista.append(i)
+    return lista    
+______________________________________________________________________________________________
+# coding: utf-8
+# Questão 213
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def turma_mais_alunos(alocacao):
+    lista = alocacao.values()
+    maior = lista[0]
+    for i in range(len(lista)):
+        if lista.count(lista[i]) > 1:
+            maior = lista[i]
+    return maior
+_______________________________________________________________________________________________
+# coding: utf-8
+# Questão 216
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def calcula_conta(tabela):
+    soma = 0
+    for i in range(1, len(tabela)):
+        celulas = 1
+        for j in range(1, len(tabela[0])):
+            celulas *= tabela[i][j]
+        soma += celulas
+    valor = (soma / 1000.0) * 0.28
+    valor = "R$ %6.2f" % (valor)
+    return valor
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 217
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def soma_unidades(dados):
+    valores = {"km":1000.0, "hm":100.0, "dam":10.0, "m":1.0, "dm":0.1, "cm":0.01, "mm":0.001}
+    soma = int(dados[0]) * valores[dados[1]] + int(dados[2]) * valores[dados[3]]
+    return soma
+
+while True:
+    dados = raw_input().split()
+    soma = soma_unidades(dados)
+    if soma == 0: break
+    print "%.2f m" % soma
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 226
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+while True:
+    valores = map(int, raw_input().split())
+    if valores[0] == -1: break
+    soma = sum(valores)
+    
+    if soma == 1:
+        for i in range(len(valores)):
+            if valores[i] == 1:
+                print i + 1
+    elif soma == (len(valores)-1):
+        for i in range(len(valores)):
+            if valores[i] == 0:
+                print i + 1
+    else:
+        print "X"
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão 227
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+def troca_chave(dicionario):
+    trocado = {}
+    for i in dicionario.keys():
+        trocado[dicionario[i]] = i
+    return trocado
+________________________________________________________________________________________________
+# coding: utf-8
+# Questão Ygor - Questão 1
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+for i in range(50):
+	if  (i % 2 != 0):
+		print i
+
+_________________________________________________________________________
+# coding: utf-8
+# Questão Ygor - Questão 2
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+num =  int(raw_input())
+print "Tabuada de %d:" % num
+for i in range(1, 11):
+	print  "%d x %d = %d " % (num, i, num*i)
+__________________________________________________________________________
+# coding: utf-8
+# Questão Ygor - Questão 3
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+num = int(raw_input())
+ehPrimo = True
+for i in range(2, num):
+	if (num % i  == 0):
+		print "Não é primo"
+		ehPrimo = False
+		break
+if ehPrimo:
+    print "É primo"
+
+___________________________________________________________________________
+# coding: utf-8
+# Questão Ygor - Questão 4
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+valores = []
+m = 1
+n = int(raw_input())
+for i in range(1, n+1):
+    valores.append(i*m)
+    m += 2
+print valores
+print sum(valores)
+
+__________________________________________________________________________
+# coding: utf-8
+# Questão Ygor - Questão 5
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+for i in range(1, 21):
+	print i
+__________________________________________________________________________
+string = ""
+for i in range(1, 21):
+	string += str(i) + " "
+print string.rstrip()
+
+___________________________________________________________________________
+# coding: utf-8
+# Questão Ygor - Questão 6
+# (C) 2013, Marcos Antônio / UFCG, Programação 1
+
+cont = 0
+gabarito = raw_input().split()
+resultado = [‘A’,’B’,’C’,’D’,’E’,’E’,’D’,’C’,’B’,’A’]
+for i in range(10):
+	if gabarito[ i].upper() == resultado[i]:
+		cont += 1
+print “Nota: “,cont
+
+
